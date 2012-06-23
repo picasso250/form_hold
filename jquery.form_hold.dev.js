@@ -1,6 +1,5 @@
 /** 保存和恢复form中填的数据
  * 用法：只需要在页面中包含这个js文件即可
- * 这是dev版，也就是最新版
  * using JSON so IE8+
  * using localStorage so IE10+, that's unecceptable! 或者说这个功能属于附属的奖励功能？
  * 每个页面有自己的不同的数据
@@ -73,7 +72,6 @@
     };
     $.fn.saveAs = function (name) {
         var form = $(this);
-
         name = name || getName(form);
         var data = getData(form);
         saveToLocal(data, getLocalPath(name));
@@ -87,8 +85,8 @@
             fillForm(form, data);
         });
     };
-    $('body').find('form').restoreFrom();
     $(function () {
+        $('body').find('form').restoreFrom();
         $('input,textarea,select').bind('click change keyup', function () {
             $(this).parents('form').saveAs();
         });
