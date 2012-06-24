@@ -45,8 +45,7 @@
     };
     var readLocal = function (path) {
         var pathArr = path.split('.');
-        var allData = window.localStorage[pathArr[0]];
-        allData = JSON.parse(allData);
+        var allData = JSON.parse(window.localStorage[pathArr[0]]) || {};
         var pageData = allData[pathArr[1]] || {};
         return pageData[pathArr[2]] || {};
     };
@@ -88,7 +87,7 @@
     $(function () {
         $('body').find('form').restoreFrom();
         $('input,textarea,select').bind('click change keyup', function () {
-            $(this).parents('form').saveAs();
+            $(this).parents('form').saveAs(); // 这里的效率！！！ 似乎可以pushValueOfInput(input); save();
         });
     });
 })(jQuery);

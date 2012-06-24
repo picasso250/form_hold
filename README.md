@@ -10,3 +10,7 @@ What you need to do is just include one javascript file.
 If you want to include more forms in one page, you must name each form with a different name.
 
 Using JSON and window.localStorage
+
+TODO List
+---------
+1.将值改为只获取当前值，并推入数据
