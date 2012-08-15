@@ -13,16 +13,17 @@ How it works:
 Auto save values of fields to loacal storage when user input or choose an option.
 Using JSON and window.localStorage
 
-There is another [jQuery autosave plug-in](http://rikrikrik.com/jquery/autosave/), but it saves data to cookie, which is of course more universal meanwhile not so light weight.
+There is another [jQuery autosave plug-in](http://rikrikrik.com/jquery/autosave/), also maintained [here](https://github.com/sg552/auto_save),  but it saves data to cookie, which is of course more universal meanwhile not so light weight. They are old and reliable than mine.
 
 用法 Usage
 =========
 在页面中包含jquery.form_hold.js这个js文件
-Include file jquery.form_hold.js, That's all.
+
+Include file jquery.form_hold.js, That's it.
 
 * jquery.form_hold.js 最新的稳定版
 * jquery.form_hold.dev.js 开发中的最新版
 
 TODO List
----------
+=========
 1. 将值改为只获取当前值，并推入数据
