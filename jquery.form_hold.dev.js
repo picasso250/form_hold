@@ -6,7 +6,7 @@
  * 这是DEV版，是最新版，是激进版，可能包含若干BUG
  *
  * by: Ryan
- * version: 0.0.1b
+ * version: 0.0.1c
  */
 
 /*properties
