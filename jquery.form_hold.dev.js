@@ -65,8 +65,14 @@
     var fillForm = function (form, data) {
         var others = data.others || {};
         $.each(others, function (i, x) {
-            form.find('input[name=' + i + ']:not([disabled])').val(x).change();
-            form.find('textarea[name=' + i + ']:not([disabled])').val(x).change();
+            var input = form.find('input[name=' + i + ']:not([disabled])');
+            if (!input.val()) {
+                input.val(x).change();
+            }
+            var textarea = form.find('textarea[name=' + i + ']:not([disabled])');
+            if (!textarea.val()) {
+                textarea.val(x).change();
+            }
         });
 //        for (i in others) { // 不要忘记触发change()事件哦
 //            form.find('input[name=' + i + ']:not([disabled])').val(others[i]).change();
