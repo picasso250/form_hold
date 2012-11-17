@@ -75,10 +75,6 @@ var d = function (arg) {
                 textarea.val(x).change();
             }
         });
-//        for (i in others) { // 不要忘记触发change()事件哦
-//            form.find('input[name=' + i + ']:not([disabled])').val(others[i]).change();
-//            form.find('textarea[name=' + i + ']:not([disabled])').val(others[i]).change();
-//        }
 
         var checkboxs = data.checkboxs || {};
         $.each(checkboxs, function (i, chk) {
@@ -87,21 +83,11 @@ var d = function (arg) {
                 c.click();
             }
         });
-//        for (i in checkboxs) {
-//            var c = form.find('input[type=checkbox][name=' + i + ']:not([disabled])');
-//            if (checkboxs[i] ^ c.prop('checked')) { // 如果两个不同，就要单击一下
-//                c.click();
-//            }
-//        }
 
         var radios = data.radios || {};
         $.each(radios, function (i, rd) {
             form.find('input[name=' + i + '][type=radio][value=' + rd + ']:not([disabled])').click();
         });
-//        for (i in radios) {
-//            form.find('input[name=' + i + '][type=radio][value=' + radios[i] + ']:not([disabled])').click();
-//        }
-
     };
     $.fn.saveAs = function (name) {
         var form = $(this);
