@@ -20,11 +20,12 @@ var d = function (arg) {
     if (JSON === undefined || window.localStorage === undefined) {
         return;
     }
+    var sep = '.|.'; // for sep in path
     var getName = function (form) {
         return form.prop('name') || form.prop('id') || form.find('form').prop('name') || 'unique';
     };
     var getLocalPath = function (name) {
-        return ['form_hold', window.location.pathname, name].join('.');
+        return ['form_hold', window.location.pathname, name].join(sep);
     };
     var getData = function (form) {
         var data = {radios: {}, checkboxes: {}, others: {}};
@@ -48,7 +49,7 @@ var d = function (arg) {
         return data;
     };
     var saveToLocal = function (data, path) {
-        var pathArr = path.split('.');
+        var pathArr = path.split(sep);
         var allData = window.localStorage[pathArr[0]] || null;
         allData = JSON.parse(allData) || {};
         var pageData = allData[pathArr[1]] || {};
@@ -57,7 +58,7 @@ var d = function (arg) {
         window.localStorage[pathArr[0]] = JSON.stringify(allData);
     };
     var readLocal = function (path) {
-        var pathArr = path.split('.');
+        var pathArr = path.split(sep);
         var allData = JSON.parse(window.localStorage[pathArr[0]] || null) || {};
         var pageData = allData[pathArr[1]] || {};
         return pageData[pathArr[2]] || {};
