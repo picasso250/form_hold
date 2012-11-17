@@ -9,14 +9,14 @@
  * version: 0.0.1c
  */
 
-/*properties
-    bind, change, checkboxes, checkboxs, click, each, find, fn, is, join,
-    localStorage, location, others, parents, parse, pathname, prop, radios,
-    restoreFrom, saveAs, split, stringify, val
-*/
+var d = function (arg) {
+    console.log(arg);
+};
 
 (function ($, window) {
     'use strict';
+
+    // we will not do things if brower not support
     if (JSON === undefined || window.localStorage === undefined) {
         return;
     }
@@ -105,8 +105,12 @@
     $.fn.saveAs = function (name) {
         var form = $(this);
         name = name || getName(form);
+        d(name);
         var data = getData(form);
+        d(data.others);
+        d(getLocalPath(name));
         saveToLocal(data, getLocalPath(name));
+        d(window.localStorage);
         return form;
     };
     $.fn.restoreFrom = function (name) {
