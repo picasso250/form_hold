@@ -1,7 +1,7 @@
 form_hold
 =========
 
-ATTATION: this is alpha version, not good enough for daily use. only for test. please help me to improve it.
+**ATTATION**: this is alpha version, not good enough for daily use. Please use it only for test and help me to improve it.
 
 form_hold 做什么 (What it does)
 -------------------------------
