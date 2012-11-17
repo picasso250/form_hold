@@ -9,22 +9,19 @@
  * version: 0.0.1c
  */
 
-/*properties
-    bind, change, checkboxes, checkboxs, click, each, find, fn, is, join,
-    localStorage, location, others, parents, parse, pathname, prop, radios,
-    restoreFrom, saveAs, split, stringify, val
-*/
-
 (function ($, window) {
     'use strict';
+
+    // we will not do things if brower not support
     if (JSON === undefined || window.localStorage === undefined) {
         return;
     }
+    var sep = '.|.'; // for sep in path
     var getName = function (form) {
         return form.prop('name') || form.prop('id') || form.find('form').prop('name') || 'unique';
     };
     var getLocalPath = function (name) {
-        return ['form_hold', window.location.pathname, name].join('.');
+        return ['form_hold', window.location.pathname, name].join(sep);
     };
     var getData = function (form) {
         var data = {radios: {}, checkboxes: {}, others: {}};
@@ -48,7 +45,7 @@
         return data;
     };
     var saveToLocal = function (data, path) {
-        var pathArr = path.split('.');
+        var pathArr = path.split(sep);
         var allData = window.localStorage[pathArr[0]] || null;
         allData = JSON.parse(allData) || {};
         var pageData = allData[pathArr[1]] || {};
@@ -57,7 +54,7 @@
         window.localStorage[pathArr[0]] = JSON.stringify(allData);
     };
     var readLocal = function (path) {
-        var pathArr = path.split('.');
+        var pathArr = path.split(sep);
         var allData = JSON.parse(window.localStorage[pathArr[0]] || null) || {};
         var pageData = allData[pathArr[1]] || {};
         return pageData[pathArr[2]] || {};
@@ -105,8 +102,12 @@
     $.fn.saveAs = function (name) {
         var form = $(this);
         name = name || getName(form);
+        d(name);
         var data = getData(form);
+        d(data.others);
+        d(getLocalPath(name));
         saveToLocal(data, getLocalPath(name));
+        d(window.localStorage);
         return form;
     };
     $.fn.restoreFrom = function (name) {
