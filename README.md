@@ -10,8 +10,8 @@ hold住整个form. 在刷新页面时也可以保证表单中的值不被清空�
 
 注：如果一个页面中包含多个表单，只需给每个表单赋予不同的name属性即可。
 
-jquery.form_hold.js auto save the form date user input. It's a single javascript file will hold values of all fields of all forms from certain page when refreshing or after reopen the browser.
-Support IE8+, Firefox, Chrome, .etc.
+It's a jQuery plugin that will hold values of all fields of forms on certain web page when refreshing the page or after reopen the browser.
+Support IE8+, Firefox, Chrome, .etc. Based on jQuery.
 
 If you want to include more forms in one page, you must name each form with a different name.
 
@@ -21,7 +21,7 @@ Using JSON and window.localStorage
 
 There is another [jQuery autosave plug-in](http://rikrikrik.com/jquery/autosave/), also maintained [here](https://github.com/sg552/auto_save),  but it saves data to cookie, which is of course more universal meanwhile not so light weight. They are old and reliable than mine.
 
-为什么用这个方法？ (Why use this way, the JavaScript way, rather than PHP way?)
+为什么用这个方法？ (Why this way, the JavaScript way, rather than PHP way?)
 -------------------------------------------------------------------------------
 
 你会说，我们可以使用php来达到一样的效果。是的，除了一点点：那就是如果不提交表单，用户填写的值就会被清空。而form_hold可以做到即使不提交表单，内容已经在本地存储了。（类似新浪微博的发表框，也类似一些浏览器插件）
